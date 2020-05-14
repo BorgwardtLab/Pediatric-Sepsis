@@ -14,14 +14,3 @@ Code for Swiss pediatric sepsis study
 
   Visualization of different phenotypes on Caucasian cases only
 
-
-## Data
-
-
-* [Caucasians](https://github.com/BorgwardtLab/SPSS/tree/master/All)
-
-  Processed Caucasians cases data
- 
-* [All](https://github.com/BorgwardtLab/SPSS/tree/master/All)
-  
-  Processed all cases data
