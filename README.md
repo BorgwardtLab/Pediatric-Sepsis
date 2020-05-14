@@ -1,2 +1,2 @@
-# Pediatric-Sepsis
-Code for pediatric sepsis study
+# SPSS
+Code for Swiss pediatric sepsis study
