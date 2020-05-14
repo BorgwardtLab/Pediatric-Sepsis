@@ -16,9 +16,6 @@ Code for Swiss pediatric sepsis study
 
 ## Data
 
-* sepsis_gwas_v2.csv
-  
-  Phenotypes list
 
 * [Caucasians](https://github.com/BorgwardtLab/SPSS/tree/master/All)
 
