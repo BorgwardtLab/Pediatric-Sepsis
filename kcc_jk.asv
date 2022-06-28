@@ -1,0 +1,22 @@
+addpath('/cluster/work/borgw/SPSS/MultiOmicsAnalysis/ConsensusClustering/')
+addpath('/cluster/work/borgw/JK/virtual_environments/spss_cluster/Utilities/');
+
+f0 = '/cluster/work/borgw/SPSS/MultiOmicsAnalysis/ConsensusClustering/data/phy_dem_jk'
+
+for f1 in ['phy','con','cli','pro']
+
+    Input = load(strcat(f,'.mat');
+    X = double(Input.Dat);
+    z = double(Input.Cov);
+
+    for k = 2:6
+        for d = k:6
+    
+            disp(k)
+            [~, ~, U] = KCC(X, z, k, k);
+            csvwrite(strcat(f,'_k_',string(k),'_d_',string(d),'.csv'), U)
+
+        end
+    end
+    
+end
