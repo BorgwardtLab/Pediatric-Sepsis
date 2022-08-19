@@ -7,6 +7,10 @@ from itertools import combinations
 import bisect
 from random import sample
 import math
+import sys
+sys.path.append('../MvKDR-master/code/')
+from mvkdr import mvkdr
+from utility import *
 
 
 class ConsensusCluster:
@@ -30,13 +34,14 @@ class ConsensusCluster:
       * self.bestK -> number of clusters that was found to be best
     """
 
-    def __init__(self, cluster, L, K, H, resample_proportion=0.5):
+    def __init__(self, cluster, L, K, H, resample_proportion=0.5, coef=0.5):
         assert 0 <= resample_proportion <= 1, "proportion has to be between 0 and 1"
         self.cluster_ = cluster
         self.resample_proportion_ = resample_proportion
         self.L_ = L
         self.K_ = K
         self.H_ = H
+        self.coef_ = coef
         self.Mk = None
         self.Ak = None
         self.deltaK = None
@@ -88,7 +93,7 @@ class ConsensusCluster:
                 sigma1 = math.sqrt(self._mediandist(resample_view1))
                 sigma2 = math.sqrt(self._mediandist(resample_view2))
                 Mh, km_obj = self.cluster_(
-                    resample_view1, resample_view2, k, sigma1, sigma2, 0.1, 0.1, 10
+                    resample_view1, resample_view2, k, sigma1, sigma2, self.coef_, self.coef_, 10
                 )
 
                 # find indexes of elements from same clusters with bisection
